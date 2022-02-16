@@ -11,6 +11,8 @@ const breedDetailsFromFile = function(breed, done) {
     // ISSUE: Returning from *inner* callback function, not breedDetailsFromFile.
     if (!error) {
       done(data);
+    } else if (error) {
+      done(undefined);
     }
   });
   // ISSUE: Attempting to return data out here will also not work.
@@ -23,5 +25,8 @@ const printOutBreed = (breedInfo) => {
 };
 
 
-breedDetailsFromFile('Bombay', printOutBreed);
-breedDetailsFromFile('Balinese', printOutBreed);
+// breedDetailsFromFile('Bombay', printOutBreed);
+// breedDetailsFromFile('Balinese', printOutBreed);
+
+
+module.exports = breedDetailsFromFile;
